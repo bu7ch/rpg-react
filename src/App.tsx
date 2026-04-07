@@ -1,3 +1,4 @@
+import BattleSim from "./components/BattleSim";
 import GuildHeader from "./components/GuildHeader";
 import HeroList from "./components/HeroList";
 import QuestBoard from "./components/QuestBoard";
@@ -22,7 +23,8 @@ function App() {
       />
       <HeroList heroes={heroes} />
 
-      <QuestBoard />
+      
+      <BattleSim/>
     </div>
   );
 }
