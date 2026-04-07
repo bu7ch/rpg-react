@@ -7,8 +7,8 @@ type Fighter = {
     maxHp:number;
     emoji:string
 }
-const INITIAL_HERO : Fighter = {name: "Héros", hp: 100, maxHp: 100, emoji:"" };
-const INITIAL_ENEMY : Fighter = {name: "Dragon", hp: 80, maxHp: 80, emoji:"" };
+const INITIAL_HERO:  Fighter = { name: 'Héros',  hp: 100, maxHp: 100, emoji: '🧙' };
+const INITIAL_ENEMY: Fighter = { name: 'Dragon', hp: 80,  maxHp: 80,  emoji: '🐉' };
 
 const rollDice = (faces: number) => Math.floor(Math.random() * faces) + 1;
 
@@ -54,23 +54,24 @@ const handleReset = () => {
             {log}
         </div>
 
-    {isOver ? (
-        <div>
-            <p>
-            {hasWon ? 'Victoire' : 'Défaite'};
-        </p>
-        <p>
-            {hasWon ? 'Tu as terrassé le dragon' : "Ldargon t'as vaincu."};
-        </p>
-        <button onClick={handleReset}> Nouvelle partie</button>
+        {isOver ? (
+        <div style={{ textAlign: 'center', padding: '16px', borderRadius: 12,
+          background: hasWon ? '#E1F5EE' : '#FCEBEB',
+          border: `0.5px solid ${hasWon ? '#5DCAA5' : '#F09595'}` }}>
+          <p style={{ fontSize: 16, fontWeight: 500, color: hasWon ? '#085041' : '#791F1F' }}>
+            {hasWon ? '🏆 Victoire !' : '💀 Défaite...'}
+          </p>
+          <p style={{ fontSize: 13, margin: '4px 0 12px', color: hasWon ? '#0F6E56' : '#A32D2D' }}>
+            {hasWon ? 'Tu as terrassé le Dragon !' : 'Le Dragon t\'a vaincu.'}
+          </p>
+          <button onClick={handleReset}>🔄 Nouvelle partie</button>
         </div>
-        
-    ):(
-        <div>
-            <button onClick={handleAttack}>Attaquer</button>
-            <button onClick={handleDefend}>Se defendre</button>
+      ) : (
+        <div style={{ display: 'flex', gap: 8 }}>
+          <button onClick={handleAttack} style={{ flex: 1 }}>⚔️ Attaquer</button>
+          <button onClick={handleDefend} style={{ flex: 1 }}>🛡️ Se défendre</button>
         </div>
-    )}
+      )}
     </div>
     
         
