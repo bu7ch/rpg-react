@@ -1,4 +1,5 @@
 import GuildHeader from "./components/GuildHeader";
+import HeroHp from "./components/HeroHp";
 import HeroList from "./components/HeroList";
 import QuestBoard from "./components/QuestBoard";
 
@@ -23,6 +24,7 @@ function App() {
       <HeroList heroes={heroes} />
 
       <QuestBoard />
+      <HeroHp />
     </div>
   );
 }

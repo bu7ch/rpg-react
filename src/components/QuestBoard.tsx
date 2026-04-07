@@ -5,10 +5,13 @@ function QuestBoard() {
   return (
     <>
         <QuestBox title="Quête Principale" rarity="Épique">
-        <p>Detruire l'anneau</p>
-        <span className="reward"> 1000 EXP.</span>
-        </QuestBox>
+        <p>Détruire l'Anneau Unique dans les feux du Mont Doom.</p>
+        <span className="reward">💰 1 000 XP</span>
+      </QuestBox>
 
+      <QuestBox title="Quête Secondaire">
+        <p>Escorter le marchand jusqu'à Bree.</p>
+      </QuestBox>
     
     </>
   )
