@@ -1,7 +1,17 @@
 import GuildHeader from "./components/GuildHeader";
-import HeroHp from "./components/HeroHp";
 import HeroList from "./components/HeroList";
 import QuestBoard from "./components/QuestBoard";
+import TavernBoard from "./components/TavernBoard";
+import TavernHeader from "./components/Tavernheader";
+
+const adventurers = [
+  { id: 1, name: "Kael",   role: "Éclaireur", rate: 30,  available: true  },
+  { id: 2, name: "Mira",   role: "Soigneuse", rate: 50,  available: true  },
+  { id: 3, name: "Drogan", role: "Guerrier",  rate: 40,  available: false },
+  { id: 4, name: "Sylva",  role: "Archère",   rate: 35,  available: true  },
+];
+
+
 
 
 const heroes = [
@@ -24,7 +34,13 @@ function App() {
       <HeroList heroes={heroes} />
 
       <QuestBoard />
-      <HeroHp />
+      <div className="app">
+        <TavernHeader title="🍺 La Taverne du Dragon Ivre">
+          <p>Aventuriers disponibles ce soir — tarifs négociables.</p>
+        </TavernHeader>
+        <TavernBoard adventurers={adventurers} />
+      </div>
+
     </div>
   );
 }
