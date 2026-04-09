@@ -43,15 +43,6 @@
   ],
   "quests": [
     {
-      "id": "2",
-      "title": "Gobelins des Bois",
-      "rarity": "Normal",
-      "reward": "80 po",
-      "content": "Escorter le marchand jusqu'à Bree.",
-      "diff": "⭐",
-      "xp": 20
-    },
-    {
       "id": "3",
       "title": "Esprit de la Forêt",
       "rarity": "Rare",
