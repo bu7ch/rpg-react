@@ -1030,3 +1030,159 @@
   background:    #EAF3DE;
   color:         #3B6D11;
 }
+
+.page-header {
+  display:         flex;
+  align-items:     flex-start;
+  justify-content: space-between;
+  gap:             12px;
+  margin-bottom:   20px;
+}
+.page-header .page-title  { margin-bottom: 2px; }
+.page-header .page-subtitle { margin-bottom: 0; }
+
+.hero-form {
+  background:     #1e1e2e;
+  border:         1px solid #2d2d44;
+  border-radius:  12px;
+  padding:        24px;
+  margin-bottom:  24px;
+  display:        flex;
+  flex-direction: column;
+  gap:            16px;
+}
+
+.form-title {
+  font-size:   16px;
+  font-weight: 500;
+  margin:      0;
+  color:       #c0922a;
+}
+
+.field {
+  display:        flex;
+  flex-direction: column;
+  gap:            6px;
+}
+
+.field-label {
+  font-size:   13px;
+  font-weight: 500;
+  color:       #aaa;
+}
+
+.required { color: #E24B4A; margin-left: 2px; }
+
+.field input[type="text"],
+.field select {
+  background:    #252540;
+  border:        1px solid #3d3d5a;
+  border-radius: 8px;
+  padding:       8px 12px;
+  font-size:     14px;
+  color:         #fff;
+  outline:       none;
+  transition:    border-color 0.2s;
+  width:         100%;
+}
+
+.field input[type="text"]:focus,
+.field select:focus { border-color: #c0922a; }
+
+.input-error { border-color: #E24B4A !important; }
+
+.field-error {
+  font-size: 12px;
+  color:     #E24B4A;
+}
+
+.field-hint {
+  font-size: 12px;
+  color:     #666;
+}
+
+.range-input {
+  width:       100%;
+  accent-color: #c0922a;
+  cursor:      pointer;
+}
+
+.field-checkbox {
+  flex-direction: row !important;
+  align-items:    center;
+  gap:            8px;
+}
+
+.field-checkbox input { accent-color: #c0922a; width: 16px; height: 16px; cursor: pointer; }
+.field-checkbox label { font-size: 13px; color: #aaa; cursor: pointer; }
+
+.form-preview {
+  display:       flex;
+  align-items:   center;
+  gap:           10px;
+  background:    #252540;
+  border-radius: 8px;
+  padding:       10px 14px;
+  flex-wrap:     wrap;
+}
+
+.preview-label { font-size: 12px; color: #666; }
+.preview-name  { font-size: 14px; font-weight: 500; color: #fff; }
+.preview-meta  { font-size: 12px; color: #888; }
+
+.form-actions {
+  display:   flex;
+  gap:       10px;
+  flex-wrap: wrap;
+}
+
+.quest-filters {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+  margin-bottom:  16px;
+}
+
+.search-row {
+  display:   flex;
+  gap:       8px;
+  align-items: center;
+}
+
+.search-input {
+  flex:          1;
+  background:    #1e1e2e;
+  border:        1px solid #2d2d44;
+  border-radius: 8px;
+  padding:       8px 12px;
+  font-size:     13px;
+  color:         #fff;
+  outline:       none;
+  transition:    border-color 0.2s;
+}
+
+.search-input:focus     { border-color: #c0922a; }
+.search-input::placeholder { color: #555; }
+
+.diff-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.diff-btn {
+  padding:       4px 12px;
+  border-radius: 99px;
+  border:        1px solid #3d3d5a;
+  background:    transparent;
+  color:         #888;
+  font-size:     12px;
+  cursor:        pointer;
+  transition:    all 0.15s;
+}
+
+.diff-btn:hover  { border-color: #c0922a; color: #c0922a; }
+.diff-btn.active { border-color: #c0922a; background: rgba(192,146,42,0.15); color: #c0922a; font-weight: 500; }
+
+.filter-count {
+  font-size:  12px;
+  color:      #888;
+  margin:     0;
+  font-style: italic;
+}

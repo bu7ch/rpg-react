@@ -39,27 +39,17 @@
       "level": 38,
       "hp": 90,
       "isAlive": true
+    },
+    {
+      "name": "test",
+      "classe": "Archère",
+      "level": 1,
+      "hp": "63",
+      "isAlive": true,
+      "id": "BHhHfoWuzE0"
     }
   ],
   "quests": [
-    {
-      "id": "2",
-      "title": "Gobelins des Bois",
-      "rarity": "Normal",
-      "reward": "80 po",
-      "content": "Escorter le marchand jusqu'à Bree.",
-      "diff": "⭐",
-      "xp": 20
-    },
-    {
-      "id": "3",
-      "title": "Esprit de la Forêt",
-      "rarity": "Rare",
-      "reward": "150 po",
-      "content": "Retrouver l'artefact volé par les créatures des bois.",
-      "diff": "⭐⭐",
-      "xp": 40
-    },
     {
       "id": "4",
       "title": "Crypte Oubliée",
