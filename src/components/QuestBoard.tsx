@@ -1,15 +1,18 @@
 
 
-import { useState }       from 'react';
-import QuestBox           from './QuestBox';
-import { useGuild }       from '../context/GuildContext';
-import { useQuests }      from '../hooks/useQuests';
-import type { Quest }     from '../types';
-import { EmptyState, ErrorState, LoadingState } from './StateComponents';
+import { useState }          from 'react';
+import QuestBox              from './QuestBox';
+import QuestFilters          from './QuestFilters';
+import { useGuild }          from '../context/GuildContext';
+import { useQuests }         from '../hooks/useQuests';
+import { useQuestFilters }   from '../hooks/useQuestFilters';
+import { LoadingState, ErrorState, EmptyState } from './StateComponents';
+import type { Quest }        from '../types';
 
 function QuestBoard() {
   const { currentHeroId, activeQuest, takeQuest } = useGuild();
-  const { quests, loading, error, refetch } = useQuests();
+  const { quests, loading, error, refetch }        = useQuests();
+  const { search, diffFilter, filtered, setSearch, setDiffFilter, reset } = useQuestFilters(quests);
   const [formError, setFormError] = useState<string | null>(null);
 
   const handleTake = (quest: Quest) => {
@@ -29,36 +32,45 @@ function QuestBoard() {
 
   if (loading) return <LoadingState message="Chargement des quêtes..." />;
   if (error)   return <ErrorState  message={error} onRetry={refetch} />;
-  if (quests.length === 0) return (
-    <EmptyState
-      emoji="🏆"
-      title="Toutes les quêtes ont été complétées !"
-      subtitle="Revenez plus tard pour de nouvelles missions."
-    />
-  );
 
   return (
     <div className="quest-board">
+      <QuestFilters
+        search={search}
+        diffFilter={diffFilter}
+        resultCount={filtered.length}
+        onSearch={setSearch}
+        onDiffFilter={setDiffFilter}
+        onReset={reset}
+      />
+
       {formError && <div className="error-msg">⚠️ {formError}</div>}
-      {quests.map((quest) => (
-        <QuestBox key={quest.id} title={quest.title} rarity={quest.rarity}>
-          <p>{quest.content}</p>
-          <div className="quest-footer">
-            <div className="quest-rewards">
-              <span className="reward">💰 {quest.reward}</span>
-              <span className="diff">{quest.diff}</span>
-              <span className="xp-pill">+{quest.xp} XP</span>
+
+      {filtered.length === 0 ? (
+        quests.length === 0
+          ? <EmptyState emoji="🏆" title="Toutes les quêtes complétées !" subtitle="Revenez plus tard." />
+          : <EmptyState emoji="🔍" title="Aucun résultat" subtitle="Essaie avec d'autres termes ou filtres." />
+      ) : (
+        filtered.map(quest => (
+          <QuestBox key={quest.id} title={quest.title} rarity={quest.rarity}>
+            <p>{quest.content}</p>
+            <div className="quest-footer">
+              <div className="quest-rewards">
+                <span className="reward">💰 {quest.reward}</span>
+                <span className="diff">{quest.diff}</span>
+                <span className="xp-pill">+{quest.xp} XP</span>
+              </div>
+              <button
+                className="btn-take"
+                onClick={() => handleTake(quest)}
+                disabled={!!activeQuest}
+              >
+                ⚔️ Prendre la quête
+              </button>
             </div>
-            <button
-              className="btn-take"
-              onClick={() => handleTake(quest)}
-              disabled={!!activeQuest}
-            >
-              ⚔️ Prendre la quête
-            </button>
-          </div>
-        </QuestBox>
-      ))}
+          </QuestBox>
+        ))
+      )}
     </div>
   );
 }
