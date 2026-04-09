@@ -11,7 +11,7 @@ async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
 
 export const heroApi = {
     getAll: () => fetchJson<Hero[]>(`${BASE_URL}/heroes`),
-    getOne: (id: number) => fetchJson<Hero>(`$BASE_URL/heroes/${id}`),
+    getOne: (id: number) => fetchJson<Hero>(`${BASE_URL}/heroes/${id}`),
     create: (hero: Omit<Hero, 'id'>) => fetchJson<Hero>(`${BASE_URL}/heroes`, {
         method: 'POST',
         headers: { 'Content-Type': "application/json" },
@@ -29,7 +29,7 @@ export const heroApi = {
 
 export const questApi = {
     getAll: () => fetchJson<Quest[]>(`${BASE_URL}/quests`),
-    getOne: (id: number) => fetchJson<Quest>(`$BASE_URL/questes/${id}`),
+    getOne: (id: number) => fetchJson<Quest>(`${BASE_URL}/quests/${id}`),
     create: (Quest: Omit<Quest, 'id'>) => fetchJson<Quest>(`${BASE_URL}/quests`, {
         method: 'POST',
         headers: { 'Content-Type': "application/json" },
